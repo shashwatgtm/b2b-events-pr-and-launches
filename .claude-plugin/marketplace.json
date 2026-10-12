@@ -1,0 +1,15 @@
+{
+  "name": "b2b-events-pr-and-launches",
+  "owner": {
+    "name": "Shashwat Ghosh",
+    "url": "https://github.com/shashwatgtm"
+  },
+  "description": "Event, PR and launch skills for B2B teams by Shashwat Ghosh, Helix GTM Consulting: event planning from the sales target, panel, webinar, podcast and speaker kits, verified press releases and launch plans, and event follow-up specs and audits.",
+  "plugins": [
+    {
+      "name": "b2b-events-pr-and-launches",
+      "source": "./plugins/b2b-events-pr-and-launches",
+      "description": "Plan B2B events, press releases and product launches: event portfolios and plans per event type, panel and webinar kits, speaker notes, verified releases, launch sequences and event follow-up specs."
+    }
+  ]
+}
