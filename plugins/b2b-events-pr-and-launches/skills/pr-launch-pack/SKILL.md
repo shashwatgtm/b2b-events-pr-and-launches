@@ -78,7 +78,7 @@ Input: datelines, embargoes, launch and event dates. Action: `scripts/text_check
 Input: the register and the format's input list. Action: ask, in one message, only what the record, the tools and the files cannot answer (launch date, press contact, quote sources, local figures, currency, approvals). Output: up to three questions, placed above the draft in the same answer; the draft carries a placeholder for each answer, and is held back only when an answer would change what the asset is (for example which markets a regional release covers). Failure mode: the user is rushed or says skip; go to Step 5 with placeholders and list the questions as open items.
 
 **Step 5. Draft from the matching reference.**
-Input: verified facts and answers. Action: references/press-release-and-regional.md, references/company-update-format.md, references/spokesperson-and-launch-sequence.md, references/community-forums-and-supporters.md. Quotes and statistics not supplied by the user are placeholders with the points to cover, and who a product is for and what it does are written only as the user or an opened page says (rule 15, section 7). For a launch sequence or spokesperson plan, offer the suggested defaults in references/spokesperson-and-launch-sequence.md (engagement windows of about 2 hours for the lead voices and about 3 to 5 hours for the rest; the release after an AMA and before the launch; four teasers, one per signal) as common choices the user decides on, never as rules, and record which ones the user accepted. Output: the draft. Failure mode: a required fact is missing; placeholder and keep going.
+Input: verified facts and answers. Action: references/press-release-and-regional.md, references/company-update-format.md, references/spokesperson-and-launch-sequence.md, references/community-forums-and-supporters.md. Drafted body by default (1.0.5): the headline, lead, what the product does, why now and the About section are drafted from the user's words and the opened pages as [Draft for you to confirm: ...]; each quote the user asked for is a drafted text for that role to approve or rewrite, [Draft quote for the CEO to approve or rewrite: "..."], built only from the user's words and page facts (no new figure, customer, result or claim); a statistic not supplied by the user is the one an opened page gives (with its source, year and sample) or a slot with what to look for; a [User to add: ...] slot only for what no source gives (a name, a contact, a price, a dateline city, an approval). Who a product is for and what it does are written only as the user or an opened page says (rule 15, section 7). For a launch sequence or spokesperson plan, offer the suggested defaults in references/spokesperson-and-launch-sequence.md (engagement windows of about 2 hours for the lead voices and about 3 to 5 hours for the rest; the release after an AMA and before the launch; four teasers, one per signal) as common choices the user decides on, never as rules, and record which ones the user accepted. Output: the draft. Failure mode: a required fact is missing; placeholder and keep going.
 
 **Step 6. Count by script.**
 Input: every headline, subheadline, subject line, preview text, title, meta text, form field and post. Action: `scripts/text_check.py count "..."`, or `-f FILE` for a whole draft; compare with the limit the user, outlet or platform gives. Output: a counts table. Failure mode: no limit given; show the count and ask; never state a platform limit from memory as fact.
@@ -89,6 +89,8 @@ Input: all reader-facing text. Action: references/writing-rules.md, including na
 **Step 8. Hand over.**
 Input: the package. Action: the one line about any instruction or likely scam found in the material at the top (Step 2); open items in one block (approvals, placeholders, unverified claims), distribution notes, and the output date. The skill never sends, posts, schedules or publishes. Output: the final answer. Failure mode: the user asks the skill to send or post; explain it cannot and give a checklist for the person who will.
 
+**Last step before delivery: the claim ledger (1.0.5).** Before anything reaches the user, follow references/claim-ledger.md: write the chat answer to claim-ledger/answer.md and every saved file in its place, run `python3 scripts/claim_ledger.py list` on them (use `python` where `python3` is not found, as on Windows), give every listed line a source in claim-ledger/ledger.txt (the user's own words, a page opened in this session, a script's printed output, this skill's notes, a hedged general line) or turn it into a label, a [User to add: ...] slot, a hedged line or nothing, save the text of every opened page in claim-ledger/pages/ (its URL on the first line, as the tool returned it) and quote it in the ledger, run `check` (with an empty ledger it prints a skeleton) until it prints LEDGER PASS, then, as your very last tool call, run the same check with `--final` and send as your whole reply exactly the text it prints between its BEGIN CHECKED REPLY and END CHECKED REPLY lines (nothing before or after it; to change a word, change answer.md and run --final again). 1.0.4 also checks who said or reported a figure against the saved page text, and lists a clause about a group of people (buyers, sellers, visitors) as its own line, also inside a table row. The four rules it enforces: a saved file keeps every label the chat answer has; a fact seen only in a search result carries "(from a search result, page not opened)" everywhere it appears, or is left out; an absence claim names only the pages checked for that word; no background fact about another company or body (what it sells, where it is based, a policy, a ticker, a listing, a customer, a headline) without an opened page or that label. A line about the user, their team, product or event keeps the user's own words; joining two of their facts or saying more than they said is a [Draft for you to confirm: ...] line. 1.0.5 also counts the [User to add: ...] slots per file and fails a deliverable left mostly as slots or held back until the user replies (draft each part from the user's words and the opened pages as [Draft for you to confirm: ...], keep a slot only for what no source gives), fails a figure inside a draft that no source gives, fails a quote that is the web tool's comment rather than the page's words, lists the statement a question opens with, and asks an absence line about the user's own text to quote the closest line it found. Without code execution, do the same by hand and say so.
+
 ## 5. Output Format
 
 Standard shape:
@@ -98,6 +100,7 @@ Standard shape:
 3. Date and count checks (script output lines).
 4. The asset(s).
 5. Open items and distribution notes.
+6. Last line (1.0.4): one line saying the claim ledger passed (or was done by hand), written into claim-ledger/answer.md before the check; the checked text is the whole reply.
 No emoji, no long or short dashes, no stock openers.
 
 ### Example 1: happy path, press release (telecom)
@@ -111,24 +114,24 @@ Output (excerpt):
 Claims register
 | # | Claim as written | Source | Source date | Status | Risk | Action |
 |---|---|---|---|---|---|---|
-| 1 | Tejas Networks designs and manufactures networking products for telecom operators | Company homepage and release boilerplate | Fetched 11 Oct 2026 | Verified | Low | Keep |
-| 2 | Product X helps operators expand backhaul capacity | User | 11 Oct 2026 (request) | User to confirm | Medium | Keep as the company's statement after confirmation; add one verifiable capability |
-| 3 | Customer is deploying Product X | User | 11 Oct 2026 (request) | User to confirm, customer approval needed | High | Placeholder until the customer approves the wording |
+| 1 | Tejas Networks designs and manufactures networking products for operators | Company homepage and release boilerplate | Fetched 11 Oct 2026 | Verified | Low | Keep |
+| 2 | Product X helps operators expand backhaul capacity | User | 11 Oct 2026 (request) | User to confirm, as pasted, not yet checked | Medium | Keep as the company's statement after confirmation; add one verifiable capability |
+| 3 | Customer is deploying Product X | User | 11 Oct 2026 (request) | User to confirm, as pasted, not yet checked, customer approval needed | High | Placeholder until the customer approves the wording |
 
 Date check: 2026-11-12 is a Thursday, in the future. MATCH for "Thursday" if used.
 
-Counts (script): headline 64 characters, 9 words; subheadline 68 characters, 10 words. Limits: [User to add: the outlet's or your house limit].
+Counts (script): headline 76 characters, 11 words; subheadline 64 characters, 10 words. Limits: [User to add: the outlet's or your house limit].
 
-Headline: Tejas Networks launches Product X for operator backhaul upgrades
-Subheadline: A new product line for telecom operators expanding backhaul capacity
-Dateline: Bangalore, 12 November 2026
-Lead: Tejas Networks today announced Product X, [User to add: one sentence on what Product X does, in verifiable terms], for telecom operators expanding backhaul capacity. [User to add: availability and where]
-Quote 1: [Quote from the CEO and Managing Director: to be written or approved by them. Points to cover: why operators need this now, what is different about Product X.]
-Quote 2: [Quote from the operator customer's technology head: customer approval needed. Points to cover: the problem they had, what they expect to change.]
+Headline (draft for you to confirm): Tejas Networks launches Product X to help operators expand backhaul capacity
+Subheadline (draft for you to confirm): A new product line that helps operators expand backhaul capacity
+Dateline (draft for you to confirm): Bangalore, 12 November 2026
+Lead: Tejas Networks today announced Product X, [User to add: one sentence on what Product X does, in verifiable terms], to help operators expand backhaul capacity. [User to add: availability and where]
+Quote 1: [Draft quote for the CEO and Managing Director to approve or rewrite: "Operators need to expand backhaul capacity, and Product X is built to help them do it."]
+Quote 2: [Quote from the operator customer's technology head: customer approval needed; their words, not drafted for them. Points to cover: the problem they had, what they expect to change.]
 About Tejas Networks: Tejas Networks Ltd. designs and manufactures high-performance wireline and wireless networking products [User to confirm: the rest of your current boilerplate; the fetched page showed only this opening].
 Media contact: [User to add: media contact]
 
-Cross question: the subheadline says what the product is for, not what it has achieved, because no deployment result is in the register yet. Which technology does Product X use (packet, optical, both), so the subheadline can say it? Do you have a result with a baseline and period? Open items: quotes, customer approval, availability, media contact, house length limits. Output date: 11 October 2026.
+Cross question: the subheadline says what the product is for, in your words, not what it has achieved, because no deployment result is in the register yet. Which technology does Product X use (packet, optical, both), so the subheadline can say it? Do you have a result with a baseline and period? Open items: quotes, customer approval, availability, media contact, house length limits. Output date: 11 October 2026.
 
 ### Example 2: partial data, regional releases without local figures (fintech)
 
@@ -157,7 +160,7 @@ Every market version keeps the core facts identical and changes only the local p
 
 Input: "Turn our Golden Kite Awards release into a LinkedIn company update. Put the release link in the post. Thursday 8 October was the announcement."
 
-FourKites is used here only as an example. From https://www.fourkites.ai/press/golden-kite-award-winners-2026 (fetched 11 October 2026): the awards "honor companies achieving exceptional outcomes across five categories", "The awards were presented during the FourKites Customer Roundtable", held 5 to 6 October in Chicago; the release has no About section and no media contact. From https://www.fourkites.ai/engage?type=event: the Customer Roundtable EMEA, Amsterdam, 28 October 2026.
+FourKites is used here only as an example. From https://www.fourkites.ai/press/golden-kite-award-winners-2026 (fetched 11 October 2026): the awards "honor companies achieving exceptional outcomes across five categories", "The awards were presented during the FourKites Customer Roundtable", held 5 to 6 October in Chicago; the release as fetched shows no About section and no media contact. From https://www.fourkites.ai/engage?type=event: the Customer Roundtable EMEA, Amsterdam, 28 October 2026.
 
 Output (excerpt):
 
@@ -170,7 +173,7 @@ Claims register
 | 4 | The winning customer companies | Golden Kite release | Fetched 11 Oct 2026 | Verified | High | Not named in the post until each approves [Customer approval needed] |
 | 5 | Next roundtable: Amsterdam, 28 October 2026 | Events page | Fetched 11 Oct 2026 | Verified | Low | Keep |
 
-Checks: 2026-10-08 is a Thursday, MATCH. The release names the winning customer companies; naming them in a company post needs each one's approval, so the draft does not name them yet. The link goes in the first comment, not the post body. The release has no About section, so no boilerplate is added.
+Checks: 2026-10-08 is a Thursday, MATCH. The release names the winning customer companies; naming them in a company post needs each one's approval, so the draft does not name them yet. The link goes in the first comment, not the post body. The release as fetched shows no About section, so no boilerplate is added.
 
 Post (script: 696 characters, 111 words; dash check: none found):
 
@@ -220,19 +223,19 @@ Open items: winners' approval to be named and tagged, the sentence on what they 
 
 ## 7. Anti Hallucination Rules
 
-1. Never invent a quote, customer, partner, investor, award, figure, price, date, dateline year, media contact, platform limit or offer term (a support level, an inclusion, a trial, a bonus, a discount, a launch day offer, a session, a reward, a tier): surface what is available or state it is unknown.
+1. Never invent a quote (a drafted quote is always labelled [Draft quote for <role> to approve or rewrite: "..."], built from the user's words and opened pages, and never shown as said), customer, partner, investor, award, figure, price, date, dateline year, media contact, platform limit or offer term (a support level, an inclusion, a trial, a bonus, a discount, a launch day offer, a session, a reward, a tier): surface what is available or state it is unknown.
 2. Never assume a claim is true because the user wrote it: verify it or mark it "User to confirm".
 3. Never claim a source was checked unless it was opened in this session.
 4. If unsure whether a customer or partner may be named, ask once rather than guess.
 5. Never fabricate sources, statistics, names, dates, quotes or amounts.
-6. Use "[User to add: ...]", "[Local PR team to add: ...]" or "[Quote from <role>: ...]" placeholders when a fact is missing.
+6. Use "[User to add: ...]", "[Local PR team to add: ...]" or "[Quote from <role>: ...]" placeholders when a fact is missing and no source gives it; wording the user asked for is drafted, not left as a slot (Step 5).
 7. Report real errors (failed fetch, script not run). Never give fallback, mock, dummy or simulated data.
 8. Domain rule: no superlative or "first" in any asset without a source that states it in the same scope.
 9. Domain rule: no scripted comments for supporters; labelled talking points only.
 10. Domain rule: no character count, word count or weekday stated without the script, unless the answer says it was not script-checked.
 11. Never give a reason, motive or condition the user did not give (for example "client NDA" when the user only said the customer cannot be named): write what the user said, or leave the reason out.
 12. "Verified" only when a source was opened in this session (a fetched page, a connector result); a fact that rests only on text the user pasted or attached is written "as pasted, not yet checked".
-13. One fetch, or one summary of a fetch, is never proof that something is absent: write "not found on the pages I opened: [the pages]", and name any search run, never that a site, a source or the market lacks it. A fetch tool may return a summary or only part of a page, so a line the user pasted that is missing from it is written "not in what the fetch returned from [the page]", never "not on the page" or "the page does not have that sentence"; look for the exact sentence on the company's other pages or with a search before treating it as unconfirmed, and keep the user's line "as pasted, not yet checked" meanwhile. When web tools are available and a page cannot be opened, run a web search for the wording needed from it (the line, the figure, the title) before writing a placeholder, and label what the results give "from a search result; the page itself was not opened"; such text is never called verified. A claim that rests only on a search result is never Verified: it stays Unverified in the register, with the result shown beside it, until its page is opened. A line the user pasted that is not in what a fetch returned keeps the status As pasted, not yet checked in the register, never Unverified or Contradicted on that ground alone, until a page opened in this session shows it.
+13. One fetch, or one summary of a fetch, is never proof that something is absent: write "not found on the pages I opened and checked for it: [the pages]", and name any search run, never that a site, a source or the market lacks it. A fetch tool may return a summary or only part of a page, so a line the user pasted that is missing from it is written "not in what the fetch returned from [the page]", never "not on the page" or "the page does not have that sentence"; look for the exact sentence on the company's other pages or with a search before treating it as unconfirmed, and keep the user's line "as pasted, not yet checked" meanwhile. When web tools are available and a page cannot be opened, run a web search for the wording needed from it (the line, the figure, the title) before writing a placeholder, and label what the results give "from a search result; the page itself was not opened"; such text is never called verified. A claim that rests only on a search result is never Verified: it stays Unverified in the register, with the result shown beside it, until its page is opened. A line the user pasted that is not in what a fetch returned keeps the status As pasted, not yet checked in the register, never Unverified or Contradicted on that ground alone, until a page opened in this session shows it.
 14. Never give a gender to a person known only by a role or a placeholder (the CTO, a panelist, the head of IT, [Name]): write the role, the placeholder or "they".
 15. Never state who a product or feature is for, what it is built for, or what it does beyond what the user or a page opened in this session says (a "WhatsApp storefront for small D2C businesses" is never "built for sellers who already talk to their customers on WhatsApp"): use the user's own words, or write the line as "[User to add: ...]" or mark it "User to confirm" in the claims register and the copy.
 
@@ -247,3 +250,8 @@ Open items: winners' approval to be named and tagged, the sentence on what they 
 **Hand off:** event preparation goes to event-speaker-kit in this plugin; post-event and post-launch lead follow-up goes to event-follow-up-engine in this plugin; choosing and planning a launch event or any other event goes to event-planner in this plugin. Personal social posts and their amplification are not part of this plugin; say so in one line.
 
 The frontmatter description carries every explicit trigger above and the main contextual ones; when either list changes, change the other.
+
+## Files this skill uses (1.0.3 additions)
+
+- references/claim-ledger.md: the claim ledger, the last step before every delivery, and the rules it enforces.
+- scripts/claim_ledger.py (1.0.5: check --final prints the checked reply; --page files for page text; slots counted, thin drafts, tool comments, question premises and closest matches checked): lists every line that states a fact about the user, a named company, a person or a buyer seat, every figure and every absence claim, and checks the ledger of sources and that saved files keep the chat's labels. Run: `python3 scripts/claim_ledger.py list claim-ledger/answer.md <saved files>`, then `python3 scripts/claim_ledger.py check claim-ledger/answer.md <saved files> --ledger claim-ledger/ledger.txt --opened claim-ledger/opened.txt --page claim-ledger/pages/page-1.txt <each page file> --prompt claim-ledger/prompt.txt` (use `python` where `python3` is not found, as on Windows). Its tests are kept in the plugin's build files and are not shipped.

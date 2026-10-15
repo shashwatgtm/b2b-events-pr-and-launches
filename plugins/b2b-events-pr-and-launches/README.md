@@ -2,7 +2,33 @@
 
 Plan B2B events, press releases and product launches with Claude: event portfolios and plans per event type, panel and webinar kits, speaker notes, verified releases, launch sequences and event follow-up specs.
 
-Version 1.0.2.
+Version 1.0.5.
+
+## What changed in 1.0.5
+
+- Drafts, not frames. The claim ledger counts the [User to add: ...] slots in every deliverable and sends back one left mostly as slots, or held back until you reply: the parts you asked for are drafted from your words and the pages opened, marked "draft for you to confirm", and a slot is kept only for what no source gives (a name, a contact, a price, an approval). A figure inside a draft must come from your message, an opened page or a script.
+- Page words, not the web tool's words. A quote from a fetched page must be the page's own words, not the web tool's comment about the page.
+- A question that opens with a statement about you or a company has that statement checked, and a review point about a line that is not word for word in your text is answered on the closest line, quoted.
+- Unchanged: the delivery check (the checked text is the reply, with the Stop hook in Claude Code) and the saved page text design of 1.0.4.
+- The shipped plugin folder carries no test files; the tests of the scripts and of the hook are kept and run in the plugin's build files.
+
+## What changed in 1.0.4
+
+- Delivery from the checked text. The claim ledger's last run, `claim_ledger.py check ... --final`, is Claude's last step: it prints the verdict on its first line and, when the check passes, the answer between two lines carrying its digest. Claude's whole reply is exactly that text. In Claude Code, one hook (below) compares the final reply with it and sends Claude back when they differ.
+- Saved page text. Claude saves the text of every page it opened in this session (as the web tool returned it) next to the ledger, and the check matches each figure, each quoted phrase and each "who said, reported or ran it" line against that text: a figure credited to the wrong speaker (when the transcript labels each turn with a name of two or more words, with or without a role), a survey credited to someone the page does not name, or an absence claim for a word that is on the page now fails the check.
+- A clause about a group of people (buyers, sellers, visitors, readers, a role) is its own ledger line, also inside a table row whose other cells come from a page; it is hedged or sourced.
+- A lighter procedure: the check run with an empty ledger prints every line id with a skeleton to fill in.
+- One hook, in Claude Code only: hooks/delivery_check.py runs when Claude is about to end a turn (a Stop hook). If one of these skills ran its claim ledger in that turn, it checks that the final reply is exactly the text the last `--final` run printed and that no file changed after that run, and otherwise sends Claude back with the reason, at most twice per turn. In any other turn it does nothing. It reads only the hook input and the session transcript on your computer, writes no file, reads no environment variable, uses no network and sends nothing. The Claude apps do not run plugin hooks; there the skills follow the same last step without the hook. Because the hook is a script inside a plugin that sits in a subfolder of its repository, a directory listing may be held for an Anthropic reviewer ("Scripts the validator couldn't follow"); that is a review step, not a block.
+
+## What changed in 1.0.3
+
+- Every skill now ends with a claim ledger before it answers: a new script, claim_ledger.py (standard library only), lists every line of the answer and of every saved file that states a fact about you, a named company, a person or a buyer, every figure and every "not on the site" claim. Claude gives each line its source (your own words, a page opened in this session, a script's printed output, the skill's own method notes) or turns it into a label, a [User to add: ...] slot, a hedged line, or nothing, runs the check again until it passes, and sends you exactly the checked text with one line saying the ledger passed. Where Claude cannot run code, it does the same check by hand and says so.
+- Saved files keep every label the chat answer has ("[Draft for you to confirm: ...]", "as pasted, not yet checked", "from a search result, page not opened"); the check reports a saved file that drops one.
+- A fact seen only in a search result is labelled "from a search result, page not opened" everywhere it appears, or left out, and is never counted as a second source.
+- A claim that a site does not say something names only the pages checked for that word.
+- No background fact about another company or body (what it sells, where it is based, a policy, a ticker, a listing, a customer, a headline) without a page opened in this session or the search label.
+- Lines about you, your team, your product or your event keep your own words; anything that joins two of your facts or says more than you said is marked as a draft for you to confirm.
+- Working files: the ledger keeps its notes in a claim-ledger folder in your working folder (the answer as checked, your message, the list of pages opened, the ledger). Nothing in it is sent anywhere; delete it whenever you like.
 
 ## What changed in 1.0.2
 
@@ -66,7 +92,7 @@ Every skill checks claims against your material or a cited page, checks dates an
 The worked examples in the skills use real logistics tech, fintech and telecom companies only as examples, with public facts fetched and cited on 11 October 2026; every other figure in them is hypothetical. No company endorsed this plugin.
 
 ## Privacy
-The plugin stores nothing on any server and has no database. When Claude can write files, a skill may save its drafts (for example a plan or a release) in your own working folder, and nothing else. This plugin sends no data to Helix GTM Consulting and runs no server. The skills run inside Claude. When you name a company or event, Claude may open public pages with its own web tools. The text check script, and the event planner's plan arithmetic script, run on your machine, read only the text or file you give them and write nothing. The skills never send, post or publish anything, and never write to a marketing platform or CRM. What you type into Claude is handled under your own Claude account terms.
+The plugin stores nothing on any server and has no database. When Claude can write files, a skill may save its drafts (for example a plan or a release) in your own working folder, plus the claim-ledger notes described at the end of this section, and nothing else. This plugin sends no data to Helix GTM Consulting and runs no server. The skills run inside Claude. When you name a company or event, Claude may open public pages with its own web tools. The text check script, and the event planner's plan arithmetic script, run on your machine, read only the text or file you give them and write nothing. The skills never send, post or publish anything, and never write to a marketing platform or CRM. What you type into Claude is handled under your own Claude account terms. The claim ledger script, claim_ledger.py, reads the answer and the files Claude saved for you, uses no network and writes no files; Claude keeps its working notes (the answer as checked, your message, the pages opened, the ledger) in a claim-ledger folder in your working folder (1.0.4: with a pages folder holding the text of each page opened in the session, as the web tool returned it). The Stop hook (Claude Code only) reads the session transcript on your computer and writes nothing.
 
 ## Security
 To report a security problem, email shashwat@gtmhelix.com with the subject "Security report: b2b-events-pr-and-launches". Please do not open a public issue for it.

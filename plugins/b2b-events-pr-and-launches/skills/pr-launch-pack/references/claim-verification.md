@@ -9,7 +9,7 @@ Every statement that could be true or false: product capabilities, customer name
 | # | Claim as written | Source | Source date | Status | Risk | Action |
 |---|---|---|---|---|---|---|
 Status is one of:
-- Verified: a source opened in this session (a fetched page or a connector result) states it, in the same unit, region and period, and the source is one the user accepts.
+- Verified: a source opened in this session (a fetched page or a connector result) states it, in the same unit, region and period, and the source is one the user accepts. Say "two sources" only when both were opened in this session; a search result is never a second source.
 - As pasted, not yet checked: the only source is text or a file the user pasted or attached; the claim matches it, but no source was opened in this session. Never called Verified.
 - User to confirm: the user's own fact that no public source shows (internal numbers, unreleased features). Kept only after the user confirms, and phrased as the company's own statement.
 - Unverified: no source found. Removed from the copy, or kept as "[User to add: source for ...]".
