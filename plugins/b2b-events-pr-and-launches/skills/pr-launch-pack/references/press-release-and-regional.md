@@ -13,7 +13,7 @@
 2. Subheadline: the supporting detail. Count by script.
 3. Dateline: CITY, date (weekday checked by script if a weekday is written).
 4. Lead paragraph: who, what, when, where, why, in third person and present tense.
-5. Significance: what changes for the customers or the market, using verified facts only.
+5. Significance: what changes for the customers or the market, using verified facts only; who the product is for and what it does only as the user or an opened page says, otherwise "[User to add: ...]".
 6. Quote 1 (company executive): by default a placeholder with the points it should cover:
    "[Quote from <role>: to be written or approved by them. Points to cover: <point 1>, <point 2>.]"
    Draft wording only if the user asks, always marked "DRAFT QUOTE FOR APPROVAL BY <role>", and never presented as said.

@@ -11,6 +11,8 @@ IF ASKED: the likely audience questions on this point and a short honest answer,
 
 SOURCE: where each fact in BE PRECISE comes from (document, page, link, date). If missing: "[User to add: source for <fact>]".
 
+When the speaker will read the notes on a phone or tablet during the session, give each segment as short talking points (the SAY lines cut to the words the speaker needs; short phrases are fine here, since only the speaker reads them), one segment per screen, as plain text with no background colour so the speaker can set a large font. The BE PRECISE figures stay word for word, and their SOURCE lines are kept at the end. Ask which file format the speaker can open on that device.
+
 The last slide's notes end with a contact line only. No pitch.
 
 Number consistency: every figure that appears more than once (on slides, in notes, in the abstract) must match. List any mismatch at the top of the notes.

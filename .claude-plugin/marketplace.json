@@ -9,6 +9,7 @@
     {
       "name": "b2b-events-pr-and-launches",
       "source": "./plugins/b2b-events-pr-and-launches",
+      "version": "1.0.2",
       "description": "Plan B2B events, press releases and product launches: event portfolios and plans per event type, panel and webinar kits, speaker notes, verified releases, launch sequences and event follow-up specs."
     }
   ]

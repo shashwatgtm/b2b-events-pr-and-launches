@@ -47,6 +47,7 @@ Every timing below is a suggested default. Write each one as "a common choice is
 | Target list: segmented by enterprise or mid market, and existing or new target companies; refreshed every quarter | Marketing owner | a common choice is to refresh it each quarter, you decide |
 | Invite emails, web banners, content synopsis and the post event drip, all written | Marketing owner | a common choice is three to four weeks before the event, you decide |
 | Presentation and panel content final | Speaker and marketing owner | a common choice is one week before, you decide |
+| Session material to the organiser for their check, when they ask for it: what will actually be shown (the exact prompts or inputs and the unedited outputs), with no scores or summaries of the speaker's own | Speaker | [User to add: the date it goes to them] |
 | Meetings fixed in advance with target contacts | Core group | a common choice is to have them fixed two days before, you decide |
 | Mock run of the presentation or panel | Speakers | a common choice is a mock run two to three days before; you decide whether and when |
 | Account based outreach on LinkedIn to the final invitee list | Marketing owner | a common choice is to start three days before and continue for three working days after, you decide |

@@ -32,6 +32,11 @@ Formulas (stated in the output too):
   needed from events  = target x event share
 If the user's conversion rates are measured on all contacts, enter a relevant share of 100.
 
+Bad input (exit 2, never a traceback): a value that is not a number, a negative value, a
+percentage over 100, a number that is not finite (NaN, Infinity), too large or too small to compute,
+a "types" row that is not an object, and a plan file that is not UTF-8 JSON. needed with accepted=0 answers 0 events
+needed; a rate of 0 with a positive accepted target is refused.
+
 Exit codes: 0 = complete, 1 = computed with missing fields reported, 2 = bad input.
 """
 import json
@@ -43,6 +48,14 @@ TYPE_FIELDS = ["events", "contacts_per_event", "relevant_share", "first_stage_ra
 PERCENT_FIELDS = {"relevant_share", "first_stage_rate", "accepted_rate", "event_share"}
 
 
+def utf8_output():
+    """Write UTF-8, so a rupee sign, a Unicode minus or a curly quote never stops the script on a Windows console or pipe
+    set to code page 1252 (S2, version 1.0.2). A stream that cannot be reconfigured (a test buffer) is left as it is."""
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8")
+
+
 class BadInput(Exception):
     pass
 
@@ -52,6 +65,14 @@ def number(value, field, where):
         return None
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise BadInput(f"{where} {field} must be a number, got {value!r}")
+    try:
+        finite_value = math.isfinite(value)
+    except OverflowError:   # an integer too large for a float
+        raise BadInput(f"{where} {field} is too large to compute; check the figure")
+    if not finite_value:
+        raise BadInput(f"{where} {field} must be a finite number, got {value!r}")
+    if 0 < value < sys.float_info.min:   # too small to compute: results would underflow to 0
+        raise BadInput(f"{where} {field} is too small to compute; check the figure")
     if value < 0:
         raise BadInput(f"{where} {field} must not be negative")
     if field in PERCENT_FIELDS and value > 100:
@@ -67,7 +88,15 @@ def fmt(x, money=False):
     return f"{int(round(x)):,}" if math.isclose(x, round(x), abs_tol=1e-9) else f"{x:,.1f}"
 
 
-def run_type(t, missing):
+def finite(values, where):
+    for x in values:
+        if x is not None and not math.isfinite(x):
+            raise BadInput(f"{where}: a result is too large to compute; check the figures")
+
+
+def run_type(t, missing, n=1):
+    if not isinstance(t, dict):
+        raise BadInput(f"types row {n} must be an object with a name and the funnel figures, got {t!r}")
     name = t.get("name") or "unnamed type"
     v = {f: number(t.get(f), f, name) for f in TYPE_FIELDS}
     for f in TYPE_FIELDS:
@@ -92,6 +121,7 @@ def run_type(t, missing):
         r["note"] = "no accepted leads on these figures, so cost per accepted lead cannot be computed"
     else:
         r["cost_per_accepted"] = r["total_cost"] / r["accepted"]
+    finite([r[k] for k in r if k not in ("name", "note")], name)
     return r
 
 
@@ -101,9 +131,12 @@ def cmd_portfolio(args):
         return 2
     try:
         with open(args[0], encoding="utf-8") as fh:
-            plan = json.load(fh)
-    except (OSError, json.JSONDecodeError) as e:
+            plan = json.load(fh, parse_float=_plan_float)
+    except (OSError, json.JSONDecodeError, UnicodeDecodeError) as e:
         print(f"bad input: cannot read {args[0]}: {e}")
+        return 2
+    except BadInput as e:
+        print(f"bad input: {e}")
         return 2
     if not isinstance(plan, dict) or not isinstance(plan.get("types"), list) or not plan["types"]:
         print("bad input: the plan needs a non empty \"types\" list")
@@ -112,7 +145,9 @@ def cmd_portfolio(args):
     try:
         target = number(plan.get("target"), "target", "plan")
         share = number(plan.get("event_share"), "event_share", "plan")
-        rows = [run_type(t, missing) for t in plan["types"]]
+        rows = [run_type(t, missing, n) for n, t in enumerate(plan["types"], 1)]
+        sums = [sum(r["accepted"] for r in rows if r["accepted"] is not None), sum(r["total_cost"] for r in rows if r["total_cost"] is not None)]
+        finite(sums + [target * share / 100.0 if target is not None and share is not None else None], "plan")
     except BadInput as e:
         print(f"bad input: {e}")
         return 2
@@ -155,6 +190,19 @@ def cmd_portfolio(args):
     return 0
 
 
+def _written_non_zero(text):
+    """True when a number is written with a non zero digit before any exponent (1e-400 is written non zero but reads as 0.0)."""
+    mantissa = text.strip().lower().split("e")[0]
+    return any(c in "123456789" for c in mantissa)
+
+
+def _plan_float(text):
+    value = float(text)
+    if value == 0 and _written_non_zero(text):
+        raise BadInput(f"the plan holds {text}, a number too small to compute; check the figure")
+    return value
+
+
 def parse_flags(args):
     out = {}
     for arg in args:
@@ -165,6 +213,8 @@ def parse_flags(args):
             out[key] = float(value)
         except ValueError:
             raise BadInput(f"{key} must be a number, got {value!r}")
+        if out[key] == 0 and _written_non_zero(value):
+            raise BadInput(f"{key} is too small to compute; check the figure")
     return out
 
 
@@ -189,14 +239,25 @@ def cmd_needed(args):
         for m in missing:
             print(f"  {m}")
         return 1
-    for k in ["first_stage_rate", "accepted_rate", "relevant_share", "contacts_per_event"]:
-        if v[k] == 0:
-            print(f"bad input: {k.replace('_', ' ')} is 0, so no number of events can reach the target")
+    if v["accepted"] == 0:
+        first_needed = relevant_needed = contacts_needed = 0.0   # no accepted leads needed, so nothing to divide
+        events_needed = 0
+    else:
+        for k in ["first_stage_rate", "accepted_rate", "relevant_share", "contacts_per_event"]:
+            if v[k] == 0:
+                print(f"bad input: {k.replace('_', ' ')} is 0, so no number of events can reach the target")
+                return 2
+        first_needed = v["accepted"] / (v["accepted_rate"] / 100.0)
+        relevant_needed = first_needed / (v["first_stage_rate"] / 100.0)
+        contacts_needed = relevant_needed / (v["relevant_share"] / 100.0)
+        events = contacts_needed / v["contacts_per_event"]
+        if not all(math.isfinite(x) for x in (first_needed, relevant_needed, contacts_needed, events)):
+            print("bad input: needed: a result is too large to compute; check the figures")
             return 2
-    first_needed = v["accepted"] / (v["accepted_rate"] / 100.0)
-    relevant_needed = first_needed / (v["first_stage_rate"] / 100.0)
-    contacts_needed = relevant_needed / (v["relevant_share"] / 100.0)
-    events_needed = math.ceil(round(contacts_needed / v["contacts_per_event"], 9))
+        events_needed = math.ceil(round(events, 9))
+        if events_needed == 0:   # a positive target never needs 0 events; the figures are too small to compute
+            print("bad input: needed: the accepted target is too small to compute; check the figures")
+            return 2
     print("Formulas: first stage needed = accepted / accepted rate; relevant needed = first stage / first stage rate; "
           "contacts needed = relevant / relevant share; events needed = contacts / contacts per event, rounded up")
     print(f"First stage leads needed: {fmt(first_needed)}")
@@ -207,6 +268,7 @@ def cmd_needed(args):
 
 
 def main(argv):
+    utf8_output()
     if not argv:
         print(__doc__)
         return 2

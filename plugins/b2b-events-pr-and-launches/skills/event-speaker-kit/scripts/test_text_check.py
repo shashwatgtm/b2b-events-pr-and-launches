@@ -116,6 +116,92 @@ def unknown_command():
     assert code == 2 and "unknown command" in out, out
 
 
+@test
+def s2_cp1252_output_is_utf8():
+    """S2, run 32A: a weekday argument with a rupee sign is echoed as UTF-8, never an encoding error, on a code page 1252 pipe."""
+    env = dict(os.environ, PYTHONIOENCODING="cp1252")
+    p = subprocess.run([sys.executable, SCRIPT, "date", "2026-10-28", "\u20b9day"], capture_output=True, env=env)
+    assert b"Traceback" not in p.stderr, p.stderr.decode("utf-8", "replace")
+    assert p.returncode == 2 and "\u20b9day".encode("utf-8") in p.stdout, (p.returncode, p.stdout)
+
+
+@test
+def file_name_without_flag_refused_dashes():
+    """Run 33A (judge 33A-5, EVK-2): `dashes draft.txt` without -f checked the 9 characters "draft.txt" and said "none found";
+    a lone argument that names an existing file is bad input with a message that points to -f, never a silent pass."""
+    with tempfile.TemporaryDirectory() as d:
+        path = os.path.join(d, "draft.txt")
+        with open(path, "w", encoding="utf-8") as fh:
+            fh.write("Launch day " + chr(0x2014) + " set by you\n")
+        code, out = run("dashes", path)
+        assert code == 2 and "-f" in out and "none found" not in out, (code, out)
+        code, out = run("dashes", "-f", path)
+        assert code == 1 and "long dash" in out, (code, out)
+
+
+@test
+def file_like_name_without_flag_refused():
+    """Run 33A: a lone argument shaped like a file name (no space, a text file ending) is refused even when the file is not in the
+    current folder, for dashes and count, so a wrong folder can never pass as a clean draft."""
+    for cmd in ("dashes", "count"):
+        for name in ("draft.txt", "notes.md", "kit.markdown", "rows.csv"):
+            code, out = run(cmd, name)
+            assert code == 2 and "-f" in out, (cmd, name, code, out)
+
+
+@test
+def count_existing_file_without_flag_refused():
+    with tempfile.TemporaryDirectory() as d:
+        path = os.path.join(d, "headline.txt")
+        with open(path, "w", encoding="utf-8") as fh:
+            fh.write("A headline\n")
+        code, out = run("count", path)
+        assert code == 2 and "-f" in out, (code, out)
+
+
+@test
+def ordinary_strings_still_checked():
+    """Parity: text with a space, or a single word that is not a file name, is still checked as text."""
+    assert run("dashes", "Launch day set by you") == (0, "dashes: none found\n")
+    code, out = run("count", "Launch")
+    assert code == 0 and "characters=6" in out, out
+    code, out = run("count", "v2.0")
+    assert code == 0 and "characters=4" in out, out
+
+
+@test
+def missing_or_bad_file_is_bad_input():
+    """Run 33A auditor S1: -f or --file with a missing file or a folder ends with bad input (exit 2), never a traceback or exit 1."""
+    with tempfile.TemporaryDirectory() as d:
+        for cmd in ("dashes", "count"):
+            for flag in ("-f", "--file"):
+                for target in (os.path.join(d, "nofile.txt"), d):
+                    p = subprocess.run([sys.executable, "-I", SCRIPT, cmd, flag, target], capture_output=True, text=True)
+                    assert p.returncode == 2 and "Traceback" not in p.stderr and "bad input" in p.stdout, (cmd, flag, target, p.returncode, p.stdout, p.stderr)
+
+
+@test
+def file_flag_without_path_is_bad_input():
+    """Run 33A auditor S2: `dashes -f` or `count --file` with no path was read as the text "-f" and passed; it is bad input."""
+    for cmd in ("dashes", "count"):
+        for flag in ("-f", "--file"):
+            code, out = run(cmd, flag)
+            assert code == 2 and "bad input" in out, (cmd, flag, code, out)
+
+
+@test
+def more_file_endings_and_folders_refused():
+    """Run 33A auditor S3: other document endings and an existing folder name given alone are refused, not checked as text."""
+    for name in ("draft.docx", "draft.rtf", "draft.tex", "draft.text", "draft.pdf"):
+        code, out = run("dashes", name)
+        assert code == 2 and "-f" in out, (name, code, out)
+    with tempfile.TemporaryDirectory() as d:
+        code, out = run("dashes", d)
+        assert code == 2, (d, code, out)
+
+
+
+
 def main():
     passed = 0
     for fn in TESTS:

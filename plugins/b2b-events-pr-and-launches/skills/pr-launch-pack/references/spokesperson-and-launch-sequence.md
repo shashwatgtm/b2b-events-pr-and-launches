@@ -22,7 +22,7 @@ Suggested defaults in this file are common choices offered to the user, who deci
 ## C. Teasers
 - Tag each teaser by the signal it is meant to earn: a save, a comment, a share, or trust.
 - Reveal enough to inform and create curiosity, never enough to replace the launch, and never with false scarcity or a declared catastrophe.
-- Add an audience filter line when the launch is not for everyone (who should not attend or buy).
+- Add an audience filter line when the launch is not for everyone (who should not attend or buy, as the user says; otherwise "[User to add: ...]").
 - On launch day, switch teaser copy to "available today" wording.
 - The number of teasers is the user's choice. Suggested default, shown as a common choice the user decides on: four teasers, each chasing a different signal (save, comment, share, trust). Offer it, ask, and use the user's number if they give one.
 

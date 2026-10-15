@@ -15,10 +15,11 @@ Apply these to everything this skill drafts for someone else to read: releases, 
 - No exclamation marks in published text.
 - On LinkedIn, no links in the post body: links go in a comment. Two to three hashtags mixing one broad and the rest niche, never more than five. Tag a person or company only when the post is about them or quotes them.
 - Count characters by script, never by estimate.
+- Names in public copy: an internal code name, working label or draft name never appears in a launch asset. One product, tool or method keeps one name across every asset. A named method or framework is explained in one plain sentence where it first appears, or replaced by plain words.
 
 ## Punctuation
 - No long dashes (em dashes) and no short dashes (en dashes). No spaced hyphen or double hyphen used as a dash. Hyphens inside words are fine. Use a comma, a colon, a full stop or the word "to" for ranges.
-- Run `scripts/text_check.py dashes` on every draft before showing it. If the script cannot run, say so and check by eye, line by line.
+- Run `scripts/text_check.py dashes -f FILE` on every draft before showing it (save the draft to a file first; a file name given without -f is refused as bad input). If the script cannot run, say so and check by eye, line by line.
 
 ## Banned words and phrases
 game-changer, game-changing, leverage, dive in, dive deep, delve, landscape (allowed only as a domain modifier, such as "competitive landscape"), tapestry, elevate, elevated, unlock, seamless, seamlessly, landed hard, resonated, struck a chord, genuine unlock, genuinely, honestly, straightforward, revolutionize, supercharge, harness, empower, navigate (for abstract things), in today's world, in the ever-evolving landscape, take your X to the next level, it's important to note, testament to, the rise of, keep coming back to, sat with me, rubric (say "scoring method"), move the needle, here's the thing, groundbreaking, revolutionary, transformative, comprehensive, robust, dynamic, holistic, synergy, paradigm shift, next-level, mechanics, "just" used as filler, and "thought leader" applied to oneself.

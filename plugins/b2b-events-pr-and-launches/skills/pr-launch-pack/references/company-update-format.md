@@ -9,7 +9,7 @@ For news shared from a company page or a leader's profile: funding, a partnershi
 ## Structure (prose, writing rules apply)
 1. Announcement: what is happening, stated plainly in the first sentence. No stock opener ("Thrilled to announce", "Humbled to share", "Excited to share", "Big news").
 2. Background: why this happened, from the user's material.
-3. What it means for customers or the industry: the change they will see, concretely.
+3. What it means for customers or the industry: the change they will see, concretely, from the user's words or an opened page; otherwise "[User to add: ...]".
 4. Details: timeline, scope, where it applies.
 5. What is next: the next real step, only if it is decided.
 6. Thanks: name the people or teams the user wants thanked, by role or name as the user gives them; no invented gratitude lines.

@@ -1,7 +1,7 @@
 {
   "name": "b2b-events-pr-and-launches",
   "displayName": "B2B Events, PR and Launches",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Plan B2B events, press releases and product launches: an event planner that works back from your sales target to an event portfolio and a plan per type (roundtable, exhibition, webinar, podcast, event visit, summit sponsorship, AMA, workshop, partner, customer and analyst events); panel question maps, AMA, webinar and podcast run of show, speaker notes and stage demo kits; verified press releases, regional releases, company updates and launch sequences; and event follow-up pilot specs and audits with nurture emails. Every claim is checked and every missing fact is a placeholder.",
   "author": {
     "name": "Shashwat Ghosh",

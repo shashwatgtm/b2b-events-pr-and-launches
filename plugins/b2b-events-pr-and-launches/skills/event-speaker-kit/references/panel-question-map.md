@@ -26,7 +26,7 @@ Each main question runs in five parts. Write all five for every question.
 Add for each question: why it matters to this audience, the primary voice (which panelist answers first), the reasoning path you expect, two moderator follow-up prompts, and the metric to listen for.
 
 ## 4. One example and one failure per topic
-"What not to do" matters as much as "what to do". For every topic block, plan one example of what worked and one failure (what went wrong, why, what changed). The failure must come from a panelist's own experience or be framed as a general pattern; never attribute a failure to a named company.
+"What not to do" matters as much as "what to do". For every topic block, plan one example of what worked and one failure (what went wrong, why, what changed). The failure must come from a panelist's own experience or be framed as a general pattern; never attribute a failure to a named company. A failure from a panelist's own employer is an internal practice: it passes the confidentiality filter in section 8 and is never relabelled a general pattern to get past it.
 
 ## 5. Lightning round
 One prompt per panelist, answered in a few sentences: "Name the use case, the tool category (not the vendor), the metric, and the first step." Protect this round and the audience questions when time runs short; cut a topic block before cutting these.
@@ -42,7 +42,7 @@ Ask panelists to answer audience questions as: context, one concrete step, one m
 - The moderator's own replies trace to these prep notes.
 
 ## 8. Confidentiality filter
-Before the kit goes to anyone, check every example and metric: if it describes an internal practice of a panelist's current employer, rewrite it as a general industry observation ("teams that run carrier scorecards weekly tend to...") unless the panelist confirms it is public or cleared. Mark each converted item "[filtered for confidentiality]" in the moderator's copy only.
+Before the kit goes to anyone, check every example and metric: if it describes an internal practice of a panelist's current employer, it stays out of the kit, or is marked "[Panelist to confirm: public or cleared by their employer]", until the panelist confirms it is public or cleared by their employer. Mark each item held back "[held back for confidentiality]" in the moderator's copy only.
 
 ## 9. Sector tuning
 Use the vocabulary of the audience's sector, and ask the user to confirm it:
