@@ -10,6 +10,9 @@
   "homepage": "https://github.com/shashwatgtm/b2b-events-pr-and-launches",
   "repository": "https://github.com/shashwatgtm/b2b-events-pr-and-launches",
   "license": "MIT",
+  "documentationUrl": "https://github.com/shashwatgtm/b2b-events-pr-and-launches#readme",
+  "supportUrl": "https://github.com/shashwatgtm/b2b-events-pr-and-launches/issues",
+  "privacyPolicyUrl": "https://tools.gtmhelix.com/privacy/",
   "keywords": [
     "b2b",
     "events",
