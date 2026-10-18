@@ -1,13 +1,13 @@
 {
   "name": "b2b-events-pr-and-launches",
   "displayName": "B2B Events, PR and Launches",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Plan B2B events, press releases and product launches: an event planner that works back from your sales target to an event portfolio and a plan per type (roundtable, exhibition, webinar, podcast, event visit, summit sponsorship, AMA, workshop, partner, customer and analyst events); panel question maps, AMA, webinar and podcast run of show, speaker notes and stage demo kits; verified press releases, regional releases, company updates and launch sequences; and event follow-up pilot specs and audits with nurture emails. Every claim is checked and every missing fact is a placeholder.",
   "author": {
     "name": "Shashwat Ghosh",
-    "url": "https://gtmexpert.com"
+    "url": "https://gtmhelix.com/about/"
   },
-  "homepage": "https://github.com/shashwatgtm/b2b-events-pr-and-launches",
+  "homepage": "https://tools.gtmhelix.com/plugins/b2b-events-pr-and-launches/",
   "repository": "https://github.com/shashwatgtm/b2b-events-pr-and-launches",
   "license": "MIT",
   "documentationUrl": "https://github.com/shashwatgtm/b2b-events-pr-and-launches#readme",
