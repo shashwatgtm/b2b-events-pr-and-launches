@@ -78,7 +78,7 @@ To report a security problem, email shashwat@gtmhelix.com with the subject "Secu
 ## Author
 Built by Shashwat Ghosh, Co-Founder and Fractional CMO of Helix GTM Consulting, with 24+ years in B2B go-to-market and 10+ years of fractional experience.
 
-https://gtmexpert.com | https://tools.gtmhelix.com/plugins/
+https://gtmhelix.com/about/ | https://tools.gtmhelix.com/plugins/
 
 ## License
 MIT. See [LICENSE](LICENSE).
