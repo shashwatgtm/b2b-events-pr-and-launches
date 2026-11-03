@@ -1,0 +1,57 @@
+{
+  "skills": [
+    {
+      "repo": "b2b-events-pr-and-launches",
+      "path": "plugins/b2b-events-pr-and-launches/skills/event-speaker-kit/SKILL.md",
+      "before_sha256": "b37acfb165715c81181b3602c6051814613de45eaa5a595608d0e1483437d5a5",
+      "after_sha256": "a6c8bed865be57d03f84abc9727f5e3475059ca1bf76311e12693a84f12fefa7",
+      "frontmatter_sha256": "5434eac0a8d59adf21222aff96a75253cb51e082ead0033dfe2823993731b7c3",
+      "reference_sha256": "48e5917aecb374a4dfd467a5a74a066c1061c275d6110cc51b36a4860fe0bd8e"
+    },
+    {
+      "repo": "b2b-events-pr-and-launches",
+      "path": "plugins/b2b-events-pr-and-launches/skills/event-planner/SKILL.md",
+      "before_sha256": "2cd5a9ff434d0c1863c4cf39ba759ccaf8c12d43298732db66eb8f91955e3fe6",
+      "after_sha256": "95ae64074b15fdb0603878aec1109c56dd1ccc4b9ad414e9266dbe404190cbd0",
+      "frontmatter_sha256": "822860d88435f61619395abce82099e0c88cb3c5f37ad17deb8aa9bdebc7d8f7",
+      "reference_sha256": "48e5917aecb374a4dfd467a5a74a066c1061c275d6110cc51b36a4860fe0bd8e"
+    },
+    {
+      "repo": "b2b-events-pr-and-launches",
+      "path": "plugins/b2b-events-pr-and-launches/skills/pr-launch-pack/SKILL.md",
+      "before_sha256": "8afd57873495ce7ff1788673ffc260b078fdafca52d33761c65c64c3a9a6c196",
+      "after_sha256": "05039c7c209b175f0118788b3a49370843edadeb1c322528026d2b12f053fbb3",
+      "frontmatter_sha256": "11bc7d187a63ef1da346e98e9e7c89c009c3260024109b1985d3940a4f60bf62",
+      "reference_sha256": "48e5917aecb374a4dfd467a5a74a066c1061c275d6110cc51b36a4860fe0bd8e"
+    },
+    {
+      "repo": "b2b-events-pr-and-launches",
+      "path": "plugins/b2b-events-pr-and-launches/skills/event-follow-up-engine/SKILL.md",
+      "before_sha256": "2aa2b27b0d1e44f6d3b20cd0974f39ebcf9641e1639023f0bcb1d6d8448a4262",
+      "after_sha256": "0311813a3efeca2030ca7088174b54701817c5f6f0a1672d07749b09d7d37cea",
+      "frontmatter_sha256": "d3e2de219b8b23963e56ee604a49e5cfc727385f598efa07b8b480c86f6c8e78",
+      "reference_sha256": "48e5917aecb374a4dfd467a5a74a066c1061c275d6110cc51b36a4860fe0bd8e"
+    }
+  ],
+  "tools": {
+    "alpha": [
+      "gtm_consultation",
+      "epic_audit",
+      "generate_roadmap"
+    ],
+    "revenue": [
+      "account_plan_builder",
+      "deal_strategy_coach",
+      "discovery_question_bank",
+      "roi_business_case_builder",
+      "mutual_action_plan_generator",
+      "win_loss_analyzer",
+      "proposal_section_writer",
+      "email_sequence_generator",
+      "demo_script_builder",
+      "pricing_negotiation_guide",
+      "champion_enablement_kit",
+      "competitive_trap_setter"
+    ]
+  }
+}
