@@ -1,17 +1,17 @@
 ---
 name: event-planner
 description: >
-  Plans and chooses B2B events backwards from the sales target: the event portfolio and calendar,
-  which event to run, the budget and funnel fields, the pre, during and post event timeline, and one
-  plan per type: roundtable, exhibition or trade show booth, webinar, podcast, event visit, summit or
-  awards sponsorship, panel moderation, AMA or LinkedIn Live, workshop, partner and customer events,
-  analyst programme, analyst day and the user's own mid sized event. Every figure stays the user's
-  field. Use when someone says "plan a roundtable", "exhibition plan", "trade show plan", "booth
-  plan", "webinar plan", "podcast plan", "event visit", "meetings at a trade show", "summit
-  sponsorship", "panel moderation", "plan an AMA", "LinkedIn Live", "workshop plan", "partner event",
-  "customer event", "analyst programme", "analyst day", "event calendar", "event portfolio", "which
-  event should we do", "event budget plan" or "plan events to hit our pipeline target". Not for
-  session content, follow-up journeys or press releases.
+  Helps a B2B team decide which events to run, working back from the sales target. You give it the
+  target and your own figures. You get an event portfolio and calendar, budget and funnel fields, a
+  timeline and a plan per type: roundtable, trade show booth, webinar, podcast, event visit, summit
+  or awards sponsorship, panel, AMA or LinkedIn Live, workshop, partner, customer and analyst
+  events, and your own event. Every figure stays your field. Use when someone says "plan a
+  roundtable", "exhibition plan", "trade show plan", "booth plan", "webinar plan", "podcast plan",
+  "event visit", "meetings at a trade show", "summit sponsorship", "panel moderation", "plan an
+  AMA", "LinkedIn Live", "workshop plan", "partner event", "customer event", "analyst programme",
+  "analyst day", "event calendar", "event portfolio", "which event should we do", "event budget
+  plan" or "plan events to hit our pipeline target". Not for session content, follow-up journeys or
+  press releases.
 ---
 
 # Event Planner

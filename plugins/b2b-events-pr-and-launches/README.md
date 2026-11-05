@@ -1,6 +1,8 @@
 # B2B Events, PR and Launches
 
-Plan B2B events, press releases and product launches with Claude: event portfolios and plans per event type, panel and webinar kits, speaker notes, verified releases, launch sequences and event follow-up specs.
+For B2B marketing, events and communications teams who have to decide which events to run, what to say on stage, what they can claim in a launch, and how attendees are followed up. You give it your sales target, the event page, your facts or a draft; you get event portfolios and plans per event type, panel and webinar kits, speaker notes, verified releases, launch sequences and event follow-up specs, with every missing fact left as a field for you.
+
+This plugin runs in Claude Code and Claude Cowork. The same skills are also bundled in the Helix GTM Suite for Gemini CLI and Antigravity: https://github.com/shashwatgtm/helix-gtm-suite
 
 Version 1.0.6.
 

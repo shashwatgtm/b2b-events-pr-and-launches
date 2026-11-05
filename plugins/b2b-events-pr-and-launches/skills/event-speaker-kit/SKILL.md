@@ -1,17 +1,17 @@
 ---
 name: event-speaker-kit
 description: >
-  Builds the speaker and host kit for B2B events: panel question maps, AMA run of show, webinar and
-  podcast plans, guest briefings, stage demo kits checked against the real product, live teardowns,
+  Helps a B2B speaker, moderator or host decide what to say and ask on stage. You give it the event
+  page, agenda, transcript or speaker list. You get panel question maps, AMA, webinar and podcast
+  run of show, guest briefings, stage demo kits checked against the real product, live teardowns,
   workshop segments, speaker notes, speaker applications and post-event articles. Use when someone
   says "moderate a panel", "panel questions", "discussion guide", "fireside chat questions", "run of
-  show", "AMA run of show", "backup questions for the AMA", "webinar run of show", "webinar outline",
-  "podcast episode outline", "podcast questions", "brief the guest", "guest briefing", "stage demo", "booth
-  demo script", "demo kit", "speaker notes", "keynote notes", "live teardown", "workshop run sheet",
-  "write up the panel", "post-event article", "turn the session into articles", "apply to speak" or
-  "speaker application", or shares an event page, agenda, transcript or speaker list and asks what
-  to say, ask or publish. Not for choosing or planning the event itself, promotional posts, press
-  releases or post-event follow-up.
+  show", "AMA run of show", "backup questions for the AMA", "webinar run of show", "webinar
+  outline", "podcast episode outline", "podcast questions", "brief the guest", "guest briefing",
+  "stage demo", "booth demo script", "demo kit", "speaker notes", "keynote notes", "live teardown",
+  "workshop run sheet", "write up the panel", "post-event article", "turn the session into
+  articles", "apply to speak" or "speaker application". Not for planning the event, promotional
+  posts, press releases or post-event follow-up.
 ---
 
 # Event Speaker Kit

@@ -1,17 +1,17 @@
 ---
 name: pr-launch-pack
 description: >
-  Builds a verified B2B launch and PR package: a claims check first, then press releases, regional
-  releases, company updates, spokesperson plans, teasers, launch day and launch sequences, forum
-  posts, supporter talking points, award entries and lines counted by script. Use when someone says
-  "press release", "draft our announcement", "launch announcement", "funding announcement", "company
-  update post", "partnership announcement", "plan our launch", "launch calendar", "launch sequence",
-  "launch plan", "which day should we launch", "regional press releases", "localise the release",
-  "spokesperson plan", "who posts what on launch day", "teasers", "launch post for a forum",
-  "talking points for supporters", "award entry", "check the claims in this release", "subject lines
-  for the launch email" or "meta description for the launch page", or pastes a draft release to
-  tighten, verify or localise. Not for event panels, speaker notes, webinars, podcasts or post-event
-  follow-up.
+  Helps a B2B team decide what it can claim in a launch and when to say it. You give it your facts
+  or a draft release. You get a claims check first, then releases, company updates, spokesperson
+  plans, teasers, launch sequences, forum posts, supporter talking points and award entries, lines
+  counted by script. Use when someone says "press release", "draft our announcement", "launch
+  announcement", "funding announcement", "company update post", "partnership announcement", "plan
+  our launch", "launch calendar", "launch sequence", "launch plan", "which day should we launch",
+  "regional press releases", "localise the release", "spokesperson plan", "who posts what on launch
+  day", "teasers", "launch post for a forum", "talking points for supporters", "award entry", "check
+  the claims in this release", "subject lines for the launch email" or "meta description for the
+  launch page", or pastes a draft release to tighten, verify or localise. Not for event panels,
+  speaker notes, webinars, podcasts or post-event follow-up.
 ---
 
 # PR and Launch Pack

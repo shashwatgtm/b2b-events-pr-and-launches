@@ -1,17 +1,17 @@
 ---
 name: event-follow-up-engine
 description: >
-  Designs and audits the follow-up that turns B2B event attendees into sales conversations: audit
-  mode checks a follow-up requirements document against locked decisions; spec mode writes a pilot
-  spec (account gate before person, scoring on clicks, not opens, early warning stage), mapping,
-  tests, nurture emails and a handoff brief, leaving every weight, threshold and timing to the user.
-  Use when someone says "event follow-up", "post-event follow-up", "follow up with attendees",
-  "trade show leads", "roundtable follow-up", "webinar no-shows", "nurture journey", "nurture email
-  series", "email course for attendees", "lead scoring for event leads", "MQL rules", "lifecycle
-  stages", "audit this requirements document", "review our nurture spec", "marketing automation
-  pilot", "field mapping", "consent rules for event data", "test cases for our nurture" or "handoff
-  brief for our admin", or uploads a requirements document or attendee export. Never writes to a
-  platform or CRM. Not for press releases or event planning.
+  Helps a B2B marketing team decide how event attendees are followed up and handed to sales. You
+  give it a requirements document or an attendee export. You get an audit against locked decisions,
+  or a pilot spec (account gate before person, clicks not opens, an early warning stage) with
+  mapping, tests, nurture emails and a handoff brief; every weight, threshold and timing stays
+  yours. Never writes to a platform or CRM. Use when someone says "event follow-up", "post-event
+  follow-up", "follow up with attendees", "trade show leads", "roundtable follow-up", "webinar
+  no-shows", "nurture journey", "nurture email series", "email course for attendees", "lead scoring
+  for event leads", "MQL rules", "lifecycle stages", "audit this requirements document", "review our
+  nurture spec", "marketing automation pilot", "field mapping", "consent rules for event data",
+  "test cases for our nurture" or "handoff brief for our admin". Not for press releases or event
+  planning.
 ---
 
 # Event Follow-up Engine
