@@ -39,7 +39,7 @@ Method being completed. A fuller programme template for large brands is not yet 
 
 **What the skill does now:**
 1. Plan backwards from the brand's targets by region and segment (shared-process.md section 1).
-2. One portfolio table row per event type the user names, with funnel economics by script. The types this skill has a method for are roundtable, exhibition, webinar, podcast, event visit, summit sponsorship, panel moderation, AMA or LinkedIn Live, workshop, partner and customer events, and analyst programme. A type the user names that is not on that list (for example a launch event, a dealer meet or an offsite) still gets its row, with every value a field and the line "not yet in the method"; it is never dropped silently and never planned from guesswork.
+2. One portfolio table row per event type the user names, with funnel economics by a fixed method. The types this skill has a method for are roundtable, exhibition, webinar, podcast, event visit, summit sponsorship, panel moderation, AMA or LinkedIn Live, workshop, partner and customer events, and analyst programme. A type the user names that is not on that list (for example a launch event, a dealer meet or an offsite) still gets its row, with every value a field and the line "not yet in the method"; it is never dropped silently and never planned from guesswork.
 3. Allocation by funnel stage, company segment, plan phase, budget and season (choice-method.md sections 3 to 8).
 4. The shared timeline and core group per event, one owner per contact across the whole programme, so that two teams never write to the same person.
 

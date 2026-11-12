@@ -18,7 +18,7 @@ Options sit in columns, rated on these rows. Fill each cell from the organiser's
 Ask the organiser to commit in writing to anything in "What do we get?" and to the list match. Never fill the list match or the cost from memory.
 
 ## 2. Funnel economics per type
-For each type, the fields of shared-process.md section 2: relevant target share, old against new account mix, conversion to the first qualified stage, conversion to the stage sales accepts, and cost per accepted lead. Run `scripts/plan_math.py` on the user's figures.
+For each type, the fields of shared-process.md section 2: relevant target share, old against new account mix, conversion to the first qualified stage, conversion to the stage sales accepts, and cost per accepted lead. Work them out per references/plan-math-method.md on the user's figures (with your own code execution when it is available; by hand otherwise, saying "counted by hand per the method").
 Pattern from the method (a hypothesis): small custom regional formats tend to win on conversion; large format events tend to win on reach into new accounts.
 
 ## 3. Type by funnel stage and audience
@@ -48,7 +48,7 @@ In the method's experience, small face to face formats plus online formats worke
 
 ## 9. Output of a choice
 1. The comparison table with every cell sourced or a field.
-2. The funnel economics per option (script output or fields).
+2. The funnel economics per option (the plan arithmetic output or fields).
 3. The fit with funnel stage, company stage, plan phase, budget and season, one line each.
 4. What would decide it: the one or two inputs still missing.
 5. A recommendation only when the user's figures support it, worded as "on your figures, option B delivers ..."; otherwise "not enough data to choose; here is what decides it".

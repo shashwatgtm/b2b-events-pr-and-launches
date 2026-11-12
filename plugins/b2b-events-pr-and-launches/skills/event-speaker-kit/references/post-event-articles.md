@@ -4,7 +4,7 @@
 The event transcript, the recording, the slides and the speakers' own notes are the only sources. Nothing from memory, nothing from other events. If a section of the transcript is unreadable, write "[unclear in transcript at mm:ss]" and ask for the recording or the speaker's notes.
 
 ## Before writing
-1. Ask which platforms (for example the company blog, LinkedIn, a trade publication, a newsletter) and the length each needs. Read each platform's current limits from the platform or the user; count by script.
+1. Ask which platforms (for example the company blog, LinkedIn, a trade publication, a newsletter) and the length each needs. Read each platform's current limits from the platform or the user; count by a fixed method.
 2. Run the confidentiality filter from panel-question-map.md on every example and metric.
 3. Decide one core point per article and a different angle per platform. The articles are not copies of each other, of the event abstract, or of any post about the event.
 
@@ -23,4 +23,4 @@ The event transcript, the recording, the slides and the speakers' own notes are 
 Say how the writer took part (in person, online, from the recording). Never write "live from" or "people at the stand told me" unless it happened and the user says so.
 
 ## Before handing over
-Run the dash check, count each article by script, check every date and weekday, and list every "VERIFY WITH PANELIST" mark in a table: speaker (role), quote, timestamp, approval status.
+Run the dash check, count each article by a fixed method, check every date and weekday, and list every "VERIFY WITH PANELIST" mark in a table: speaker (role), quote, timestamp, approval status.

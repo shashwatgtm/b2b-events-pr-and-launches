@@ -9,7 +9,7 @@
     {
       "name": "b2b-events-pr-and-launches",
       "source": "./plugins/b2b-events-pr-and-launches",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "description": "For B2B marketing and events teams: decide which events to run, what to say on stage, what you can claim in a launch and how attendees are followed up. Get event portfolios and plans per event type, panel and webinar kits, speaker notes, verified releases, launch sequences and event follow-up specs."
     }
   ]

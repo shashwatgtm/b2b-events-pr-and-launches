@@ -3,7 +3,7 @@
 Use for a moderated panel, fireside chat or roundtable discussion. The moderator owns this document; panelists see only their own questions and the run of show.
 
 ## 1. Inputs to collect (ask only what the chat, the event page or the user's files do not already say)
-- Event name, date, city and time zone, room or format (in person, online, hybrid). Check the date and weekday with `scripts/text_check.py date YYYY-MM-DD Weekday`.
+- Event name, date, city and time zone, room or format (in person, online, hybrid). Check the date and weekday with the date check in references/text-check-method.md.
 - The session length and the organiser's rules (self introduction length, pitch rules, audience questions).
 - The theme in one sentence, and the audience by role and sector.
 - Each panelist by role, company type and the angle they can speak to. Names only if the user gives them; never research private details.

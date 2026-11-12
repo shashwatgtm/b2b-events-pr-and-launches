@@ -26,7 +26,7 @@ Each post repeats the demo slots. Booth conversations appear as social proof onl
 
 **Post:** a thank you mail to stand visitors (thanks for visiting the stand at [show] on [day], a recap of what was shown, proof only from approved customers, one demo call to action). Then hand off the stand list to event-follow-up-engine. One owner per visitor.
 
-**What to measure (fields):** stand conversations [User to add]; conversations from target accounts [User to add]; meetings held within the window the user set [User to add]; accepted leads and cost per accepted lead (by script).
+**What to measure (fields):** stand conversations [User to add]; conversations from target accounts [User to add]; meetings held within the window the user set [User to add]; accepted leads and cost per accepted lead (by a fixed method).
 
 **Not yet in the method:** a booth logistics checklist (booth design, shipping, staffing rota, badge scanning, lead capture). Ask for the organiser's exhibitor manual and the user's own checklist; do not invent one.
 
@@ -49,7 +49,7 @@ Each post repeats the demo slots. Booth conversations appear as social proof onl
 
 **Post:** a recap post with takeaways, thanking the organiser and inviting co-panelists to add anything missed (tag only people the post is about); personal follow-up from each person met; one owner per contact; hand off to event-follow-up-engine.
 
-**What to measure (fields):** meetings requested, confirmed and held [User to add]; meetings with target accounts [User to add]; accepted leads (by script).
+**What to measure (fields):** meetings requested, confirmed and held [User to add]; meetings with target accounts [User to add]; accepted leads (by a fixed method).
 
 **Common mistakes:** arriving with no meetings booked; one shared inbox so no one owns the replies; a recap post that tags people it is not about.
 
@@ -71,7 +71,7 @@ Each post repeats the demo slots. Booth conversations appear as social proof onl
 5. An invitation only community for senior buyers met at past events, with membership by invitation or approval.
 Then the post event audit (shared-process.md section 6) and the hand off to event-follow-up-engine.
 
-**What to measure (fields):** target guests met [User to add]; meetings booked [User to add]; compendium contributions [User to add]; accepted leads (by script).
+**What to measure (fields):** target guests met [User to add]; meetings booked [User to add]; compendium contributions [User to add]; accepted leads (by a fixed method).
 
 **Common mistakes:** a sponsorship with no owned content; generic letters; a statistic in a letter with no source.
 

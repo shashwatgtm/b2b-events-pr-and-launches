@@ -11,7 +11,7 @@ This file covers planning, choosing and running the format. The session content 
 |---|---|
 | Sector title | [User to add] |
 | Region and time zone | [User to add] |
-| Month and date | [User to add], weekday checked by script |
+| Month and date | [User to add], weekday checked by a fixed method |
 | Audience by job title | [User to add] |
 | Length and format (for example live demo plus panel, or a technical deep dive plus questions) | [User to add] |
 | Partner co-host | [User to add: named only with approval] |
@@ -31,7 +31,7 @@ This file covers planning, choosing and running the format. The session content 
 - What is working; what needs improvement.
 - Recommendations for the next webinar: drop down fields for job title and company type, a company size field for scoring, a business email requirement, an incentive to bring a colleague, referral partners, and attendance and post webinar engagement tracking.
 
-**What to measure (fields):** registrations, attendance, share from target accounts, meetings, accepted leads, cost per accepted lead (by script).
+**What to measure (fields):** registrations, attendance, share from target accounts, meetings, accepted leads, cost per accepted lead (by a fixed method).
 
 **Common mistakes:** a hook statistic with no source; no registration fields to score fit; the questions squeezed out by overrun; no follow-up plan before the session.
 

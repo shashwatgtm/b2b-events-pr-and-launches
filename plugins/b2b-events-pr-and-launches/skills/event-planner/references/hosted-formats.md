@@ -12,7 +12,7 @@ Every figure is a field ("[User to add: ...]"). Timings follow the shared timeli
 | Roundtable topic | Framed as a business outcome the guests want, not a product |
 | Why it matters | Two or three sentences on why this audience should care now, ending in one provocative question in the user's words |
 | What the roundtable will uncover | What guests take away, and for whom it makes the most sense (roles and company types) |
-| Dates | [User to add: date options], each weekday checked by script |
+| Dates | [User to add: date options], each weekday checked by a fixed method |
 | Location | [User to add: city and venue] |
 | Companies | [User to add: segment and tier, for example enterprise accounts in one industry only] |
 | Format | [User to add: for example breakfast or lunch plus a moderated discussion; length] |
@@ -30,7 +30,7 @@ Every figure is a field ("[User to add: ...]"). Timings follow the shared timeli
 
 **Post:** personal note from the person each guest spoke with; one owner per guest; then hand off to event-follow-up-engine.
 
-**What to measure (fields):** guests by role and account [User to add]; share of guests from target accounts [User to add]; meetings within the window the user set [User to add]; accounts that moved a stage [User to add]; cost per guest and per accepted lead (by script).
+**What to measure (fields):** guests by role and account [User to add]; share of guests from target accounts [User to add]; meetings within the window the user set [User to add]; accounts that moved a stage [User to add]; cost per guest and per accepted lead (by a fixed method).
 
 **Common mistakes:** a product pitch instead of a topic; inviting outside the target list to fill seats; a vendor format with no written list guarantee; no personal follow-up.
 
@@ -80,7 +80,7 @@ Method being completed. The method has no plan, run of show, budget or venue che
 
 **What the skill does now:**
 1. Plan backwards (shared-process.md section 1): the event's share of the target, the contacts needed, and the attendee count as the user's field [User to add: attendee count].
-2. Add the event as a row in the portfolio table and run the funnel economics by script.
+2. Add the event as a row in the portfolio table and run the funnel economics by a fixed method.
 3. Compare it with the alternatives the user is weighing using the single bet comparison table (choice-method.md section 1), with "What do we get?" rewritten as what the user must produce (speakers, venue, content, guest list).
 4. Use the shared timeline (pre, during, post) with suggested defaults, the core group roles, the debrief and one owner per contact.
 5. Map it to the funnel stage and the season (choice-method.md sections 3 and 7).

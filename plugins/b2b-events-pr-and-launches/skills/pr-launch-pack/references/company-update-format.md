@@ -19,5 +19,5 @@ For news shared from a company page or a leader's profile: funding, a partnershi
 - Focus on what changes for others, not internal celebration.
 - No figures the user has not confirmed; no "leading" or "first" without a source.
 - Two to three hashtags on LinkedIn, mixing one broad with niche ones. Tag only the people or companies the post is about.
-- Count the post by script and keep it within the platform's limit.
+- Count the post by a fixed method and keep it within the platform's limit.
 - For funding news: only the amount, round and investors the user confirms are public; never state a valuation unless the user gives it with a source.

@@ -18,8 +18,8 @@ Use for a teaching series after an event (attendees, no-shows, people who visite
 
 ## For each email
 - Purpose in one line (what the reader should know or do after it).
-- Subject line: plain, specific, no clickbait, counted by script against the user's limit.
-- Preview text: counted by script.
+- Subject line: plain, specific, no clickbait, counted by a fixed method against the user's limit.
+- Preview text: counted by a fixed method.
 - Opening: one or two sentences tied to the event or the reader's situation, never an invented anecdote.
 - Body: one lesson, short, in prose: by default two to three short paragraphs, unless the user's own standard differs.
 - One action the reader can take.

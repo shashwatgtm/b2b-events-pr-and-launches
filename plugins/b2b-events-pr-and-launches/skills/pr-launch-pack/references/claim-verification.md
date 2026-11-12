@@ -36,7 +36,7 @@ Never use: anonymous posts, content farms, AI generated comparison pages, paid p
 - Real proof only, in every launch asset (releases, launch pages, guides, forum posts): screenshots, code and outputs shown as proof are real ones from the product, checked for personal data; never a stand-in description, a mock screen or an invented log. A screenshot or output the user has not taken yet is a visible placeholder that names what it must show, for example "[User to add: real screenshot of <the screen>, checked for personal data]", never a description written as if it existed.
 
 ## 5. Date check on every output
-- Run `scripts/text_check.py today` and `scripts/text_check.py date YYYY-MM-DD Weekday` for every dateline, embargo date, launch date and event date.
+- Run the today check and the date check in references/text-check-method.md for every dateline, embargo date, launch date and event date.
 - Check the year: a release dated this year must not carry last year.
 - Embargo times always carry a time zone.
 

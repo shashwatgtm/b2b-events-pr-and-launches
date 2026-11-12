@@ -11,24 +11,24 @@ Events exist to deliver a share of the sales target, so the plan starts there an
 | 2 | Accounts needed to reach it | [User to add: from the user's own win and conversion history] |
 | 3 | Share of the target events must deliver | [User to add: agreed with sales] |
 | 4 | Split between new accounts and existing accounts | [User to add] |
-| 5 | Contacts needed per event type | Worked back from step 3 and the user's own conversion rates (step 6), by script |
+| 5 | Contacts needed per event type | Worked back from step 3 and the user's own conversion rates (step 6), by a fixed method |
 | 6 | Conversion from contact to the first qualified stage, and from that stage to the stage sales accepts | [User to add: from the user's past events; if there is no history, say so and mark the plan as a first test] |
 | 7 | Cost per qualified lead the user can accept | [User to add: agreed with finance or sales] |
 
-Run `scripts/plan_math.py` on the user's figures; never do the arithmetic by estimate. If a figure is missing, the script names it and leaves every value that depends on it out.
+Work the user's figures per references/plan-math-method.md (with your own code execution when it is available; by hand otherwise, saying "counted by hand per the method"); never do the arithmetic by estimate. If a figure is missing, the method names it and leaves every value that depends on it out.
 
 ## 2. The event portfolio table
 One row per event type the user is considering. All values start blank.
 
 | Type of event | Total events | Contacts per event | Total contacts reached | Relevant target group (share of contacts in the target group) | Old accounts | New accounts | Cost per event | Total cost |
 |---|---|---|---|---|---|---|---|---|
-| [User to add] | [User to add] | [User to add] | by script | [User to add] | [User to add] | [User to add] | [User to add] | by script |
+| [User to add] | [User to add] | [User to add] | by a fixed method | [User to add] | [User to add] | [User to add] | [User to add] | by a fixed method |
 
 A second table runs each type through the funnel:
 
 | Type of event | Contacts | Conversion to first qualified stage | Total at first qualified stage | Conversion to sales accepted stage | Total sales accepted | Cost per sales accepted lead |
 |---|---|---|---|---|---|---|
-| [User to add] | by script | [User to add] | by script | [User to add] | by script | by script |
+| [User to add] | by a fixed method | [User to add] | by a fixed method | [User to add] | by a fixed method | by a fixed method |
 
 The method's portfolio used four broad kinds of event: large format events run by others, a custom national event the company hosts, custom regional breakfast or evening events, and webinars. In that experience, large format events had the lowest share of relevant attendees and the lowest conversion, and small custom regional formats had a fully relevant audience and the highest conversion. Treat this as a pattern to test against the user's own history, not as a fact about their market.
 
@@ -39,7 +39,7 @@ The method's portfolio used four broad kinds of event: large format events run b
 - Roles are named by role, never by a person the user has not named.
 
 ## 4. The timeline (pre, during, post)
-Every timing below is a suggested default. Write each one as "a common choice is ..., you decide" and put the user's decision in the plan. Check every resulting date and weekday with `scripts/text_check.py date YYYY-MM-DD Weekday`.
+Every timing below is a suggested default. Write each one as "a common choice is ..., you decide" and put the user's decision in the plan. Check every resulting date and weekday with the date check in references/text-check-method.md.
 
 ### Pre event
 | Task | Owner | Suggested default (you decide) |
